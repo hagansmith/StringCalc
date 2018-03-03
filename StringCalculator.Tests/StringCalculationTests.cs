@@ -39,5 +39,16 @@ namespace StringCalculator.Tests
 
             Assert.AreEqual(2, result);
         }
+
+        [Test]
+        public void Entering_2_Numbers_Returns_Thier_Sum()
+        {
+            var numbers = "1,2";
+            var stringCalculator = new Calculator();
+
+            var result = stringCalculator.Add(numbers);
+
+            Assert.AreEqual(3, result);
+        }
     }
 }

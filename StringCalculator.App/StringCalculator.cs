@@ -10,24 +10,33 @@ namespace StringCalculator.App
     {
         public int Add (string numbers)
         {
-            int numInt;
-            
-            bool result = int.TryParse(numbers, out numInt);
-            if (result)
+            int numInt = 0;
+
+            var parsedNums = numbers.Split(',');
+
+            if (parsedNums.Count() < 1)
             {
-                return numInt;
+                return int.Parse(numbers);
             }
             else
             {
-              return numInt = 0;
+                int sum = 0;
+                foreach (string num in parsedNums)
+                {
+                    bool result = int.TryParse(num, out numInt);
+
+                    if (result)
+                    {
+                        sum += numInt;
+                    }
+                    else
+                    {
+                        return numInt = 0;
+                    }
+                }
+                numInt = sum;
             }
-            
+            return numInt;
         }
     }
-
-    //public class Add
-    //{
-    //    public string Numbers { get; set; }
-    //}
-
 }
